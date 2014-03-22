@@ -10,7 +10,7 @@
 #
 
 AC_PREREQ([2.68])
-AC_INIT([MasterMind],[0.0.1],[jcolding@gmail.com])
+AC_INIT([MasterMind++],[0.0.1],[jcolding@gmail.com])
 AC_COPYRIGHT([Copyright (C) 2014 Jules Colding. All Rights Reserved.])
 
 # For GCC extensions
