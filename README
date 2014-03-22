@@ -1,0 +1,16 @@
+Mastermind++
+
+C++ implementation the mastermind board game.
+
+Build by:
+
+      ./bootstrap 
+      make
+
+Then run the game in game/.
+
+
+TODO: 
+
+* Add nice GUI.
+
