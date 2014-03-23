@@ -134,5 +134,8 @@ opt_done:
                 return EXIT_FAILURE;
         }
 
+	Game game;
+	game.run();
+	
         exit(EXIT_SUCCESS);
 }

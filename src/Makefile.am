@@ -15,11 +15,17 @@ noinst_LTLIBRARIES = libmastermind.la
 libmastermind_la_LDFLAGS = -static
 
 libmastermind_la_SOURCES = \
-	mastermind.cpp \
-	mastermind.h
+	mastermind.cpp     \
+	mastermind.h       \
+	gameboard.cpp      \
+	gameboard.h        \
+	code_breaker.cpp   \
+	code_breaker.h     \
+	code_maker.cpp     \
+	code_maker.h
 
-AM_CPPFLAGS = $(MERCURY_CPPFLAGS)
-AM_CXXFLAGS = $(MERCURY_CXXFLAGS)
+AM_CPPFLAGS = $(MASTERMIND_CPPFLAGS)
+AM_CXXFLAGS = $(MASTERMIND_CXXFLAGS)
 
 if THIS_IS_NOT_A_DISTRIBUTION
 CLEAN_IN_FILES = Makefile.in

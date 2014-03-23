@@ -130,7 +130,7 @@ AC_SUBST(MASTERMIND_NAME)
 MASTERMIND_VERSION=AC_PACKAGE_VERSION
 AC_SUBST(MASTERMIND_VERSION)
 
-dnl Mercury top-level source directory
+dnl top-level source directory
 MASTERMIND_top_dir="`pwd`"
 AC_SUBST(MASTERMIND_top_dir)
 
@@ -145,7 +145,7 @@ case "x$target" in
 	AM_CONDITIONAL(OS_LINUX, true)
 	;;
 	*)
-	AC_MSG_ERROR([Mercury is not supported on this operating system])
+	AC_MSG_ERROR([MasterMind++ is not supported on this operating system])
 	;;
 esac
 
@@ -257,7 +257,7 @@ else
 	AX_CXXFLAGS_GCC_OPTION(-O3, MASTERMIND_CXXFLAGS)
 fi
 if test "x$target" = "xLinux"; then
-	MASTERMIND_CXXFLAGS="-std=gnu++0x $MASTERMIND_CXXFLAGS -D__STDC_LIMIT_MACROS"
+	MASTERMIND_CXXFLAGS="$MASTERMIND_CXXFLAGS -D__STDC_LIMIT_MACROS"
 fi
 AC_SUBST(MASTERMIND_CXXFLAGS)
 

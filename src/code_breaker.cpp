@@ -37,90 +37,12 @@
  * SUCH DAMAGE.
  */
 
-#ifndef __MASTERMIND_H__
-#define __MASTERMIND_H__
+#include "code_breaker.h"
+#include <stdlib.h>
+#include <string.h>
 
-enum Outcome {Undecided, NPC_Has_Won, NPC_Has_Lost};
-enum Color {NONE, Black, Red, White, Pink, Green, Yellow};
 
-/*
- * A colored code peg
- */
-class Peg
+void CodeBreaker::run(void)
 {
-public:
-	Peg()
-		: color(NONE)
-		{
-		};
+}
 
-	Peg(Color kind)
-		: color(kind)
-		{
-		};
-
-	virtual ~Peg()
-		{
-		};
-	
-	bool operator==(const Peg & rhs) const
-		{
-			return (color == rhs.color);
-		};
-
-	Peg& operator=(Color rhs)
-		{
-			color = rhs;
-
-			return *this;
-		};
-
-	Color color;
-};
-typedef Peg row_t[4];
-
-/*
- * The game class
- */
-class Game
-{
-public:
-	Game()
-		: _npc_is_codebreaker(true)
-		{
-		};
-
-	virtual ~Game()
-		{
-		};
-
- 	void run(void);
-
-	void determine_role(void);
-	
-private:
-	bool _npc_is_codebreaker;
-	
-};
-
-
-/*
- * CodeBreaker and CodeMaker descents from this one
- */
-class GameRole
-{
-public:
-	GameRole(void)
-		{
-		};
-	
-	virtual ~GameRole()
-		{
-		};
-
- 	virtual void run(void) = 0;
-
-};
-
-
-#endif /* __MASTERMIND_H__ */
