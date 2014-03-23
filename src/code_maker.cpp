@@ -43,40 +43,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <random>
-#include <cmath>
-
-static Color
-char_to_color(const char i)
-{
-        switch (i) {
-        case 'B':
-                return Black;
-        case 'R':
-                return Red;
-        case 'W':
-                return White;
-        case 'P':
-                return Pink;
-        case 'G':
-                return Green;
-        case 'Y':
-                return Yellow;
-        default:
-                return NONE;
-        }
-}
+//#include <cmath>
 
 void CodeMaker::run(void)
 {
-        printf("The following colored pegs are available:\n");
-        printf("\tBlack ('B')\n");
-        printf("\tRed ('R')\n");
-        printf("\tWhite ('W')\n");
-        printf("\tPink ('P')\n");
-        printf("\tGreen ('G')\n");
-        printf("\tYellow ('Y')\n");
-        printf("\n");
-
         std::random_device rd;
         std::mt19937 gen(rd());
         std::uniform_int_distribution<int> distr(1, 6);
@@ -119,6 +89,8 @@ void CodeMaker::run(void)
                 if (!gb.EvaluateGuess(guess, blacks, whites)) {
                         continue;
                 }
+                printf("The number of black pegs are %d\n", blacks);
+                printf("The number of white pegs are %d\n", whites);
                 game_result = gb.GetGameState();
         } while (Undecided == game_result);
 
