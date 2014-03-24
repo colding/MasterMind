@@ -38,11 +38,86 @@
  */
 
 #include "code_breaker.h"
+#include "gameboard.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <random>
 
 void CodeBreaker::run(void)
 {
+        printf("Please enter your secret using\n");
+        printf("the one-letter color codes above.\n");
+
+        GameBoard gb;
+        row_t secret;
+        char color_code;
+        unsigned int peg_num = 0;
+	do {
+		color_code = getchar();
+		switch (color_code) {
+		case 'B':
+		case 'R':
+		case 'W':
+		case 'P':
+		case 'G':
+		case 'Y':
+			secret[peg_num++] = char_to_color(color_code);
+			break;
+		default:
+			break;
+		}
+	} while (4 > peg_num);
+        gb.SetSecret(secret);
+
+
+	printf("Thanks!\n");
+	printf("Your secret is ");
+	for (int n = 0; n < 4; ++n) {
+		printf("%s ", secret[n].ToString());
+	}
+	printf("\n\n");
+        printf("The computer will now attempt to break your code using random\n");
+        printf("guesses. It will check the score itself, but don't worry - it\n");
+        printf("won't use the knowledge of your secret to cheat.\n");
+
+        row_t guess;
+        unsigned int blacks;
+        unsigned int whites;
+        Outcome game_result = Undecided;
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<int> distr(1, 6);
+        do {
+		guess[0] = int_to_color(distr(gen));
+		guess[1] = int_to_color(distr(gen));
+		guess[2] = int_to_color(distr(gen));
+		guess[3] = int_to_color(distr(gen));
+
+                if (!gb.EvaluateGuess(guess, blacks, whites)) {
+                        continue;
+                }
+                printf("The computer guessed ");
+		for (int n = 0; n < 4; ++n) {
+			printf("%s ", guess[n].ToString());
+		}
+                printf("\n");
+		
+                printf("The number of black pegs are %d\n", blacks);
+                printf("The number of white pegs are %d\n", whites);
+                game_result = gb.GetGameState();
+        } while (Undecided == game_result);
+
+        switch (game_result) {
+        case NPC_Has_Won:
+                printf("The computer has won this round\n");
+                break;
+        case NPC_Has_Lost:
+                printf("You won this round\n");
+                break;
+        default:
+                printf("There is a bug somewhere...\n");
+        }
+        printf("You have earned %d points\n", gb.GetCodeMakerPoints());
 }
 

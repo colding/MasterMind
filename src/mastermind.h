@@ -43,6 +43,48 @@
 enum Outcome {Undecided, NPC_Has_Won, NPC_Has_Lost};
 enum Color {NONE, Black, Red, White, Pink, Green, Yellow};
 
+static inline Color
+char_to_color(const char c)
+{
+        switch (c) {
+        case 'B':
+                return Black;
+        case 'R':
+                return Red;
+        case 'W':
+                return White;
+        case 'P':
+                return Pink;
+        case 'G':
+                return Green;
+        case 'Y':
+                return Yellow;
+        default:
+                return NONE;
+        }
+}
+
+static inline Color
+int_to_color(const int i)
+{
+        switch (i) {
+        case '1':
+                return Black;
+        case '2':
+                return Red;
+        case '3':
+                return White;
+        case '4':
+                return Pink;
+        case '5':
+                return Green;
+        case '6':
+                return Yellow;
+        default:
+                return NONE;
+        }
+}
+
 /*
  * A colored code peg
  */
@@ -62,7 +104,27 @@ public:
 	virtual ~Peg()
 		{
 		};
-	
+
+	const char *ToString(void) const
+		{
+			switch (color) {
+			case Black:
+				return "Black";
+			case Red:
+				return "Red";
+			case White:
+				return "White";
+			case Pink:
+				return "Pink";
+			case Green:
+				return "Green";
+			case Yellow:
+				return "Yellow";
+			default:
+				return "NONE";
+			}
+		};
+
 	bool operator==(const Peg & rhs) const
 		{
 			return (color == rhs.color);

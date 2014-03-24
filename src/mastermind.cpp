@@ -76,5 +76,16 @@ void Game::determine_role(void)
 	} else {
 		_npc_is_codebreaker = true;
 		printf("You are the code maker. The computer will assume the role of code breaker. Enjoy!\n");
-	}		
+	}
+
+	printf("\nThe following colored pegs are available:\n");
+        printf("\tBlack ('B')\n");
+        printf("\tRed ('R')\n");
+        printf("\tWhite ('W')\n");
+        printf("\tPink ('P')\n");
+        printf("\tGreen ('G')\n");
+        printf("\tYellow ('Y')\n");
+        printf("\n");
+
+
 }

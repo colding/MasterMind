@@ -43,7 +43,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <random>
-//#include <cmath>
 
 void CodeMaker::run(void)
 {
@@ -53,10 +52,10 @@ void CodeMaker::run(void)
 
         GameBoard gb;
         row_t secret = {
-                char_to_color(distr(gen)),
-                char_to_color(distr(gen)),
-                char_to_color(distr(gen)),
-                char_to_color(distr(gen))
+                int_to_color(distr(gen)),
+                int_to_color(distr(gen)),
+                int_to_color(distr(gen)),
+                int_to_color(distr(gen))
         };
         gb.SetSecret(secret);
 
