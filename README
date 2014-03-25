@@ -33,6 +33,9 @@ The game logic is all in a static library in src/. It consists of:
 
 * code_maker.[h, cpp] - Plays the role of code maker.
 
+The subdirectory cmdline/ contains a copy of my GitHub project
+"argopt". This is used to parse command line options.
+
 
 TODO: 
 
