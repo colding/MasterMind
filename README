@@ -10,6 +10,28 @@ Build by:
 Then run the game in game/.
 
 
+OVERVIEW:
+
+This is a small program which will make the computer play one round of
+MasterMind against the command line user.
+
+The game has a minimalistic main file in game/ whose primary purpose
+it is to parse the command line options, if any, and start the game
+itself. 
+
+The game logic is all in a static library in src/. It consists of:
+
+* mastermind.[h, cpp] - Main game file. Figures out whether the
+  computer is the code breaker or if it is the user.
+
+* gameboard.[h, cpp] - A class containing the actual game rules. This
+  class is used no matter what role the computer has.
+
+* code_breaker.[h, cpp] - Plays the role of code breaker.  
+
+* code_maker.[h, cpp] - Plays the role of code maker.
+
+
 TODO: 
 
 * Add nice GUI.

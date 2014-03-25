@@ -115,7 +115,7 @@ void CodeBreaker::run(void)
                 printf("You won this round\n");
                 break;
         default:
-                printf("There is a bug somewhere...\n");
+                printf("Damn, there is a bug somewhere...\n");
         }
         printf("You have earned %d points\n", gb.GetCodeMakerPoints());
 }
