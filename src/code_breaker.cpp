@@ -46,8 +46,7 @@
 
 void CodeBreaker::run(void)
 {
-        printf("Please enter your secret using\n");
-        printf("the one-letter color codes above.\n");
+        printf("Please enter your secret using the one-letter color codes above:\n\n");
 
         GameBoard gb;
         row_t secret;
@@ -79,7 +78,7 @@ void CodeBreaker::run(void)
 	printf("\n\n");
         printf("The computer will now attempt to break your code using random\n");
         printf("guesses. It will check the score itself, but don't worry - it\n");
-        printf("won't use the knowledge of your secret to cheat.\n");
+        printf("won't use the knowledge of your secret to cheat.\n\n");
 
         row_t guess;
         unsigned int blacks;
@@ -104,7 +103,7 @@ void CodeBreaker::run(void)
                 printf("\n");
 		
                 printf("The number of black pegs are %d\n", blacks);
-                printf("The number of white pegs are %d\n", whites);
+                printf("The number of white pegs are %d\n\n", whites);
                 game_result = gb.GetGameState();
         } while (Undecided == game_result);
 

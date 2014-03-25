@@ -46,15 +46,16 @@
 
 void Game::run(void)
 {
+	CodeBreaker cb;
+	CodeMaker cm;
+
         determine_role();
         if (_npc_is_codebreaker) {
-                CodeBreaker cb;
                 cb.run();
         } else {
-                CodeMaker cm;
                 cm.run();
         }
-	printf("Goddbye.\n");
+	printf("Game over. Goddbye!\n");
 }
 
 void Game::determine_role(void)
@@ -86,6 +87,4 @@ void Game::determine_role(void)
         printf("\tGreen ('G')\n");
         printf("\tYellow ('Y')\n");
         printf("\n");
-
-
 }

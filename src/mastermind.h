@@ -40,6 +40,8 @@
 #ifndef __MASTERMIND_H__
 #define __MASTERMIND_H__
 
+#include <stdio.h>
+
 enum Outcome {Undecided, NPC_Has_Won, NPC_Has_Lost};
 enum Color {NONE, Black, Red, White, Pink, Green, Yellow};
 
@@ -68,17 +70,17 @@ static inline Color
 int_to_color(const int i)
 {
         switch (i) {
-        case '1':
+        case 1:
                 return Black;
-        case '2':
+        case 2:
                 return Red;
-        case '3':
+        case 3:
                 return White;
-        case '4':
+        case 4:
                 return Pink;
-        case '5':
+        case 5:
                 return Green;
-        case '6':
+        case 6:
                 return Yellow;
         default:
                 return NONE;
@@ -130,7 +132,7 @@ public:
 			return (color == rhs.color);
 		};
 
-	Peg& operator=(Color rhs)
+	Peg& operator=(const Color rhs)
 		{
 			color = rhs;
 

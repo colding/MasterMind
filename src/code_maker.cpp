@@ -52,15 +52,21 @@ void CodeMaker::run(void)
 
         GameBoard gb;
         row_t secret = {
-                int_to_color(distr(gen)),
-                int_to_color(distr(gen)),
-                int_to_color(distr(gen)),
-                int_to_color(distr(gen))
-        };
-        gb.SetSecret(secret);
+		int_to_color(distr(gen)),
+		int_to_color(distr(gen)),
+		int_to_color(distr(gen)),
+		int_to_color(distr(gen))
+	};
+
 
         printf("My secret has been created. Please enter your guesses\n");
         printf("using the one-letter color codes above.\n");
+	printf("Just so you know, my secret is ");
+	for (int n = 0; n < 4; ++n) {
+		printf("%s ", secret[n].ToString());
+	}
+	printf("\n\n");
+        gb.SetSecret(secret);
 
         row_t guess;
         unsigned int peg_num = 0;
@@ -84,7 +90,8 @@ void CodeMaker::run(void)
                                 break;
                         }
                 } while (4 > peg_num);
-
+		peg_num = 0;
+		
                 if (!gb.EvaluateGuess(guess, blacks, whites)) {
                         continue;
                 }

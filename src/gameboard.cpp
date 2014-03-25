@@ -127,20 +127,20 @@ GameBoard::EvaluateGuess(const row_t & guess,
         }
 
 	// set the number of correct colors with wrong placement
-        for (int n = 0; n < 4; ++n) {
-                // this pin has been matched
-                if (((1 << n) & matched)) {
+        for (int i = 0; i < 4; ++i) {
+                // this guess peg has been matched
+                if (((1 << i) & matched)) {
                         continue;
                 }
 
-                for (int m = 0; m < 4; ++m) {
-			if (((1 << m) & matched)) {
+                for (int w = 0; w < 4; ++w) {
+			if (((1 << w) & matched)) {
 				continue;
 			}
-
-			if (_secret[m] == guess[n]) {
-				matched |= 1 << n;
+			if (_secret[w] == guess[i]) {
+				matched |= 1 << i;
 				++whites;
+				break;
 			}
                 }
         }
