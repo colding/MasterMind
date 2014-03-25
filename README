@@ -27,7 +27,9 @@ The game logic is all in a static library in src/. It consists of:
 * gameboard.[h, cpp] - A class containing the actual game rules. This
   class is used no matter what role the computer has.
 
-* code_breaker.[h, cpp] - Plays the role of code breaker.  
+* code_breaker.[h, cpp] - Plays the role of code breaker. No attempt
+  has been made to use Knuths algorithm. All computer guesses are
+  purely random.
 
 * code_maker.[h, cpp] - Plays the role of code maker.
 
