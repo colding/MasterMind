@@ -44,7 +44,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-void Game::run(void)
+void
+Game::run(void)
 {
 
         determine_role();
@@ -58,7 +59,8 @@ void Game::run(void)
         printf("Game over. Goddbye!\n");
 }
 
-void Game::determine_role(void)
+void
+Game::determine_role(void)
 {
         printf("Press 'B' if you want to be the code breaker.\n");
         printf("Press 'M' if you want to be the code maker.\n");

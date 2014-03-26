@@ -44,7 +44,8 @@
 #include <string.h>
 #include <random>
 
-void CodeBreaker::run(void)
+void
+CodeBreaker::run(void)
 {
         printf("Please enter your secret using the one-letter color codes above:\n\n");
 
