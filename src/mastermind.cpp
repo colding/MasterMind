@@ -46,40 +46,40 @@
 
 void Game::run(void)
 {
-	CodeBreaker cb;
-	CodeMaker cm;
 
         determine_role();
         if (_npc_is_codebreaker) {
+                CodeBreaker cb;
                 cb.run();
         } else {
+                CodeMaker cm;
                 cm.run();
         }
-	printf("Game over. Goddbye!\n");
+        printf("Game over. Goddbye!\n");
 }
 
 void Game::determine_role(void)
 {
-	printf("Press 'B' if you want to be the code breaker.\n");
-	printf("Press 'M' if you want to be the code maker.\n");
-	printf("The computer will assume the other role.\n");
-	printf("All other keypresses will be ignored.\n");
-	printf("Terminate the game at any time by pressing CTRL-C.\n");
+        printf("Press 'B' if you want to be the code breaker.\n");
+        printf("Press 'M' if you want to be the code maker.\n");
+        printf("The computer will assume the other role.\n");
+        printf("All other keypresses will be ignored.\n");
+        printf("Terminate the game at any time by pressing CTRL-C.\n");
 
-	char role;
-	do {
-		role = getchar();
-	} while (('B' != role) && ('M' != role));
+        char role;
+        do {
+                role = getchar();
+        } while (('B' != role) && ('M' != role));
 
-	if ('B' == role) {
-		_npc_is_codebreaker = false;
-		printf("You are the code breaker. The computer will assume the role of code maker. Enjoy!\n");
-	} else {
-		_npc_is_codebreaker = true;
-		printf("You are the code maker. The computer will assume the role of code breaker. Enjoy!\n");
-	}
+        if ('B' == role) {
+                _npc_is_codebreaker = false;
+                printf("You are the code breaker. The computer will assume the role of code maker. Enjoy!\n");
+        } else {
+                _npc_is_codebreaker = true;
+                printf("You are the code maker. The computer will assume the role of code breaker. Enjoy!\n");
+        }
 
-	printf("\nThe following colored pegs are available:\n");
+        printf("\nThe following colored pegs are available:\n");
         printf("\tBlack ('B')\n");
         printf("\tRed ('R')\n");
         printf("\tWhite ('W')\n");
