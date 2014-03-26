@@ -40,6 +40,9 @@
 #ifndef __CODE_BREAKER_H__
 #define __CODE_BREAKER_H__
 
+#ifdef HAVE_CONFIG_H
+    #include "ac_config.h"
+#endif
 #include "mastermind.h"
 
 

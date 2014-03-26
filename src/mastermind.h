@@ -40,6 +40,9 @@
 #ifndef __MASTERMIND_H__
 #define __MASTERMIND_H__
 
+#ifdef HAVE_CONFIG_H
+    #include "ac_config.h"
+#endif
 #include <stdio.h>
 
 enum Outcome {Undecided, NPC_Has_Won, NPC_Has_Lost};

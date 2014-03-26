@@ -37,7 +37,6 @@
  * SUCH DAMAGE.
  */
 
-#include "mastermind.h"
 #include "gameboard.h"
 #include <stdio.h>
 #include <stdlib.h>

@@ -40,6 +40,9 @@
 #ifndef __CODE_MAKER_H__
 #define __CODE_MAKER_H__
 
+#ifdef HAVE_CONFIG_H
+    #include "ac_config.h"
+#endif
 #include "mastermind.h"
 
 

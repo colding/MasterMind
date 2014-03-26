@@ -37,6 +37,15 @@
  * SUCH DAMAGE.
  */
 
+#ifndef __GAMEBOARD_H__
+#define __GAMEBOARD_H__
+
+
+#ifdef HAVE_CONFIG_H
+    #include "ac_config.h"
+#endif
+#include "mastermind.h"
+
 class GameBoard
 {
 public:
@@ -67,3 +76,6 @@ private:
 	row_t _secret;
 	bool _initiated;
 };
+
+#endif  // __GAMEBOARD_H__
+
