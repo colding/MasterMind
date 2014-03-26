@@ -54,7 +54,6 @@ bool operator==(const Peg & lhs, const Color & rhs)
 	return (lhs.color == rhs);
 };
 
-
 /*
  * Points earned is the number of guesses by the code
  * breaker. If the code breaker has lost then the code maker
@@ -114,10 +113,10 @@ GameBoard::EvaluateGuess(const row_t & guess,
         ++_attempts;
 
         // set number of black - correct color and correct placement
-        unsigned short matched = 0x0000;
+        unsigned short guess_pegs_used = 0x0000;
         for (int n = 0; n < 4; ++ n) {
                 if (_secret[n] == guess[n]) {
-                        matched |= 1 << n;
+                        guess_pegs_used |= 1 << n;
                         ++blacks;
                 }
         }
@@ -127,18 +126,20 @@ GameBoard::EvaluateGuess(const row_t & guess,
         }
 
 	// set the number of correct colors with wrong placement
+        unsigned short secret_pegs_used = guess_pegs_used;
         for (int i = 0; i < 4; ++i) {
                 // this guess peg has been matched
-                if (((1 << i) & matched)) {
+                if (((1 << i) & guess_pegs_used)) {
                         continue;
                 }
 
                 for (int w = 0; w < 4; ++w) {
-			if (((1 << w) & matched)) {
+			if (((1 << w) & secret_pegs_used)) {
 				continue;
 			}
 			if (_secret[w] == guess[i]) {
-				matched |= 1 << i;
+				guess_pegs_used |= 1 << i;
+				secret_pegs_used |= 1 << w;
 				++whites;
 				break;
 			}

@@ -47,7 +47,6 @@
 void
 Game::run(void)
 {
-
         determine_role();
         if (_npc_is_codebreaker) {
                 CodeBreaker cb;

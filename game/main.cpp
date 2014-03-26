@@ -119,16 +119,18 @@ main(int argc, char *argv[])
                 default:
                         fprintf(stderr, "?? get_option() returned character code 0%o ??\n", c);
                 }
-                if (parameter)
+                if (parameter) {
                         free(parameter);
+		}
                 parameter = NULL;
         }
 
 opt_done:
         if ((index) && (index < argc)) {
                 fprintf(stderr, "non-option ARGV-elements: ");
-                while (index < argc)
+                while (index < argc) {
                         fprintf(stderr, "%s ", argv[index++]);
+		}
                 fprintf(stderr, "\n");
 
                 return EXIT_FAILURE;
